@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 // Detect if there is javascript on the page
 document.documentElement.className = document.documentElement.className.replace(
   'no-js',
