@@ -26,31 +26,35 @@ const isEmail = (email) =>
   );
 
 const validateForm = () => {
+  let formValid = true;
   if (nameInput.value === '' || nameInput.value.length < 2) {
     displayError(nameInput);
+    formValid = false;
   }
   if (emailInput.value === '' || !isEmail(emailInput.value)) {
     displayError(emailInput);
+    formValid = false;
   }
   if (messageInput.value === '' || messageInput.value.length < 5) {
     displayError(messageInput);
+    formValid = false;
   }
-
-  const afterSubmitAnimation = gsap.timeline();
-
-  afterSubmitAnimation
-    .to(form, { opacity: 0, display: 'none' })
-    .fromTo(
-      '.message-successfull',
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, display: 'block', duration: 0.6 }
-    )
-    .from('#success', {
-      opacity: 0,
-      y: 50,
-      rotateY: 360,
-      duration: 0.7,
-    });
+  if (formValid) {
+    const afterSubmitAnimation = gsap.timeline();
+    afterSubmitAnimation
+      .to(form, { opacity: 0, display: 'none' })
+      .fromTo(
+        '.message-successfull',
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, display: 'block', duration: 0.6 }
+      )
+      .from('#success', {
+        opacity: 0,
+        y: 50,
+        rotateY: 360,
+        duration: 0.7,
+      });
+  }
 };
 
 // Assign Line Breaks Depending on the screen width
@@ -217,4 +221,6 @@ window.addEventListener('load', () => {
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   validateForm();
+
+  console.log(validateForm);
 });
