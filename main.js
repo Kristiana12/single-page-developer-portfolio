@@ -135,6 +135,7 @@ const scaleIn = (titles) => {
       scrollTrigger: {
         trigger: title,
         start: 'top 95%',
+        end: 'bottom 20%',
       },
       scale: 0,
       transformOrigin: '0 50%',
@@ -146,7 +147,7 @@ const scaleIn = (titles) => {
 const popIn = (elements) => {
   elements.forEach((para) =>
     gsap.from(para, {
-      scrollTrigger: { trigger: para, start: 'top 97%' },
+      scrollTrigger: { trigger: para, start: 'top 97%', end: 'bottom 25%' },
       opacity: 0,
       y: 20,
       ease: 'back',
@@ -160,6 +161,7 @@ const slideIn = (elements, offset) => {
       scrollTrigger: {
         trigger: el,
         start: 'top 95%',
+        end: 'bottom 25%',
       },
       opacity: 0,
       x: offset,
@@ -173,6 +175,7 @@ const fadeInForm = () => {
     scrollTrigger: {
       trigger: form,
       start: 'top 90%',
+      end: 'bottom 25%',
     },
     opacity: 0,
     duration: 0.2,

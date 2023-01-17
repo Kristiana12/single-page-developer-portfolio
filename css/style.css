@@ -327,6 +327,10 @@ header {
   margin-top: 1.25rem;
 }
 
+.projects__card--links.touch {
+  display: none;
+}
+
 /* Contact */
 #contact {
   background-color: var(--clr-background);
