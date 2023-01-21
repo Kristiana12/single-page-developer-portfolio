@@ -83,11 +83,6 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', lineBreak);
 
 const init = () => {
-  // Show content after page was loaded
-  gsap.set('.nav-primary, .header__content, .header__img, .skills', {
-    autoAlpha: 1,
-  });
-
   // GSAP Header Animation
   const tl = gsap.timeline({ defaults: { opacity: 0, ease: 'back' } });
 
@@ -162,6 +157,7 @@ const slideIn = (elements, offset) => {
         trigger: el,
         start: 'top 95%',
         end: 'bottom 25%',
+        markers: true,
       },
       opacity: 0,
       x: offset,
@@ -190,15 +186,26 @@ window.addEventListener('load', () => {
   const animateFromRightEL = document.querySelectorAll('.slide-in-right');
   const imagesCard = document.querySelectorAll('.projects__card--img');
 
-  gsap.set('hr', { autoAlpha: 1 });
+  // Show content after page was loaded
+  gsap.set('.nav-primary, .header__content, .header__img, .skills, hr', {
+    autoAlpha: 1,
+  });
 
-  init();
-  blendIn(horizontalLines);
-  scaleIn(skillsTitles);
-  popIn(skillsParas);
-  slideIn(animateFromLeftEL, '-200px');
-  slideIn(animateFromRightEL, '200px');
-  fadeInForm();
+  let mm = gsap.matchMedia();
+
+  mm.add('(max-width: 1023px)', () => {
+    gsap.set('.line', { width: '100%' });
+  });
+
+  mm.add('(min-width: 1024px)', () => {
+    init();
+    blendIn(horizontalLines);
+    scaleIn(skillsTitles);
+    popIn(skillsParas);
+    slideIn(animateFromLeftEL, '-200px');
+    slideIn(animateFromRightEL, '200px');
+    fadeInForm();
+  });
 
   imagesCard.forEach((img) => {
     img.addEventListener('mouseenter', function () {

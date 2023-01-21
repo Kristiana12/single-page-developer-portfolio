@@ -60,7 +60,23 @@ body {
   background-color: var(--clr-dark);
   line-height: 1.6;
   overflow-x: hidden;
+
+  /* height: 100vh;
+  width: 100vw;
+  overscroll-behavior: none;
+  overflow: hidden !important; */
 }
+
+/* #viewport {
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  width: 100vw;
+  -webkit-overscroll-behavior: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+} */
 
 h1,
 h2,
@@ -161,7 +177,6 @@ button {
   height: 4px;
   background-color: var(--clr-primary);
   border-radius: 5px;
-  opacity: 0;
 }
 
 .error-message {
