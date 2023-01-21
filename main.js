@@ -157,7 +157,6 @@ const slideIn = (elements, offset) => {
         trigger: el,
         start: 'top 95%',
         end: 'bottom 25%',
-        markers: true,
       },
       opacity: 0,
       x: offset,
