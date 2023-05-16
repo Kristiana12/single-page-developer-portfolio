@@ -126,6 +126,27 @@ button {
   border: 0;
 }
 
+::selection {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+  width: 1em;
+  background-color: var(--clr-dark);
+  /* background-color: red; */
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--clr-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  border-radius: 10px;
+}
+
 /* Util Classes*/
 .container {
   max-width: 1110px;
