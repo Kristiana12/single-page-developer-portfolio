@@ -60,23 +60,7 @@ body {
   background-color: var(--clr-dark);
   line-height: 1.6;
   overflow-x: hidden;
-
-  /* height: 100vh;
-  width: 100vw;
-  overscroll-behavior: none;
-  overflow: hidden !important; */
 }
-
-/* #viewport {
-  position: fixed;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 100vh;
-  width: 100vw;
-  -webkit-overscroll-behavior: none;
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-} */
 
 h1,
 h2,
@@ -135,7 +119,6 @@ button {
 body::-webkit-scrollbar {
   width: 1em;
   background-color: var(--clr-dark);
-  /* background-color: red; */
 }
 
 body::-webkit-scrollbar-track {
@@ -145,6 +128,30 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: var(--clr-primary);
   border-radius: 10px;
+}
+
+/* Cursor */
+.cursor div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  z-index: 10000;
+  border: 1px solid var(--clr-primary);
+  box-shadow: 2px 2px 3px #4ee1a0, -2px -2px 3px #4ee1a0, 2px -2px 3px #4ee1a0,
+    -2px 2px 3px #4ee1a0;
+  /* Prevent from getting in the way when links are clicked */
+  pointer-events: none;
+  /* Move the ball to the center of the cursor */
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.cursor div.hidden {
+  opacity: 0;
 }
 
 /* Util Classes*/

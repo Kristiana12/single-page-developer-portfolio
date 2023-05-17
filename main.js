@@ -79,7 +79,6 @@ function lineBreak() {
 window.addEventListener('load', () => {
   lineBreak();
 });
-
 window.addEventListener('resize', lineBreak);
 
 const init = () => {
@@ -232,6 +231,45 @@ window.addEventListener('load', () => {
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   validateForm();
+});
 
-  console.log(validateForm);
+//Cursor ANIMATION
+const cursor = document.querySelector('.cursor');
+const circles = cursor.querySelectorAll('div');
+const elementsWitoutCursor = document.querySelectorAll('.hide-cursor');
+
+let aimX = 0;
+let aimY = 0;
+
+circles.forEach((circle, i) => {
+  let currentX = 0;
+  let currentY = 0;
+  let speed = 0.2 + i * 0.025;
+
+  const animate = () => {
+    currentX += (aimX - currentX) * speed;
+    currentY += (aimY - currentY) * speed;
+
+    circle.style.left = currentX + 'px';
+    circle.style.top = currentY + 'px';
+
+    requestAnimationFrame(animate);
+  };
+
+  animate();
+});
+
+//Animate cursor
+document.addEventListener('mousemove', (event) => {
+  aimX = event.pageX;
+  aimY = event.pageY;
+});
+
+elementsWitoutCursor.forEach((element) => {
+  element.addEventListener('mouseover', () => {
+    circles.forEach((circle) => circle.classList.add('hidden'));
+  });
+  element.addEventListener('mouseout', () => {
+    circles.forEach((circle) => circle.classList.remove('hidden'));
+  });
 });
