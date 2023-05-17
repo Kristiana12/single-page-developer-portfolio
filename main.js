@@ -233,7 +233,7 @@ form.addEventListener('submit', function (e) {
   validateForm();
 });
 
-//Cursor ANIMATION
+//Cursor
 const cursor = document.querySelector('.cursor');
 const circles = cursor.querySelectorAll('div');
 const elementsWitoutCursor = document.querySelectorAll('.hide-cursor');
