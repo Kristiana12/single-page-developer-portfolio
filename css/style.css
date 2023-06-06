@@ -117,7 +117,7 @@ button {
 
 /* Scrollbar */
 body::-webkit-scrollbar {
-  width: 1em;
+  width: 8px;
   background-color: var(--clr-dark);
 }
 
